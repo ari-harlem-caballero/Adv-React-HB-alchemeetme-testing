@@ -23,10 +23,12 @@ test('Should render the user profile', async () => {
   const profileName = await screen.findByText(/vonta/i)
 
   // motto
+  const profileMotto = await screen.findByText(/res non verba/i)
   // interests
   // avatar
   // header img
   // list of likes
 
   expect(profileName.textContent).toEqual('Vonta')
+  expect(profileMotto.textContent).toEqual('Res Non Verba')
 })
