@@ -1,3 +1,6 @@
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import Home from './Home';
 
 const user = {
   id: 1,
@@ -10,6 +13,22 @@ const user = {
   color: 'crimson',
 }
 
-test('Should render the user profile', () => {
+test('Should render the user profile', async () => {
+  render(
+    <MemoryRouter>
+      <Home user={user} />
+    </MemoryRouter>
+  )
+  // name
+  const profileName = await screen.findByRole('heading', {
+    name: /vonta/i
+  })
 
+  // motto
+  // interests
+  // avatar
+  // header img
+  // list of likes
+
+  expect(profileName).toBeInTheDocument()
 })
