@@ -20,15 +20,27 @@ test('Should render the user profile', async () => {
     </MemoryRouter>
   )
   // name
-  const profileName = await screen.findByRole('heading', {
-    name: /vonta/i
-  })
+  const profileName = await screen.findByText(/vonta/i)
 
   // motto
-  // interests
-  // avatar
-  // header img
-  // list of likes
+  const profileMotto = await screen.findByText(/res non verba/i)
 
-  expect(profileName).toBeInTheDocument()
+  // interests heading
+  const profileInterests = await screen.findByRole('heading', { name: 'Interests' })
+
+  // avatar
+  const profileAvatar = await screen.findByAltText('avatar')
+
+  // header img
+  const headerImg = await screen.findByAltText('header')
+
+  // list of likes
+  const listOfLikes = await screen.findByRole('list')
+
+  expect(profileName.textContent).toEqual('Vonta')
+  expect(profileMotto.textContent).toEqual('Res Non Verba')
+  expect(profileInterests).toBeInTheDocument()
+  expect(profileAvatar).toBeInTheDocument()
+  expect(headerImg).toBeInTheDocument()
+  expect(listOfLikes.children.length).toEqual(user.likes.length)
 })
