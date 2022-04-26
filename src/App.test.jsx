@@ -1,12 +1,13 @@
 import { render, screen} from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Header from './components/layout/Header';
+import App from './App'
 
 test('Should render the header', () => {
   render(
     <MemoryRouter>
-    <Header />
+    <App />
     </MemoryRouter>
   );
-
+    // header image
+    // profile name
 })
