@@ -32,7 +32,7 @@ test('Should render the user profile', async () => {
   const profileAvatar = await screen.findByAltText('avatar')
 
   // header img
-
+  const headerImg = await screen.findByAltText('header')
 
   // list of likes
 
@@ -41,4 +41,5 @@ test('Should render the user profile', async () => {
   expect(profileMotto.textContent).toEqual('Res Non Verba')
   expect(profileInterests).toBeInTheDocument()
   expect(profileAvatar).toBeInTheDocument()
+  expect(headerImg).toBeInTheDocument()
 })
