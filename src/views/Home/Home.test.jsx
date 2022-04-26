@@ -24,11 +24,21 @@ test('Should render the user profile', async () => {
 
   // motto
   const profileMotto = await screen.findByText(/res non verba/i)
-  // interests
+
+  // interests heading
+  const profileInterests = await screen.findByRole('heading', { name: 'Interests' })
+
   // avatar
+  const profileAvatar = await screen.findByAltText('avatar')
+
   // header img
+
+
   // list of likes
+
 
   expect(profileName.textContent).toEqual('Vonta')
   expect(profileMotto.textContent).toEqual('Res Non Verba')
+  expect(profileInterests).toBeInTheDocument()
+  expect(profileAvatar).toBeInTheDocument()
 })
