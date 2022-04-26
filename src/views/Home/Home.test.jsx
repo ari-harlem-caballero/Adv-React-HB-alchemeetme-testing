@@ -20,9 +20,7 @@ test('Should render the user profile', async () => {
     </MemoryRouter>
   )
   // name
-  const profileName = await screen.findByRole('heading', {
-    name: /vonta/i
-  })
+  const profileName = await screen.findByText(/vonta/i)
 
   // motto
   // interests
@@ -30,5 +28,5 @@ test('Should render the user profile', async () => {
   // header img
   // list of likes
 
-  expect(profileName).toBeInTheDocument()
+  expect(profileName.textContent).toEqual('Vonta')
 })
